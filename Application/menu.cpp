@@ -16,6 +16,17 @@ struct DOLPHINS
     int chipNumber;
 };
 
+void showSeaStationsMenu()
+{
+    cout << "Stations in The Black Sea" << endl << endl;
+    cout << "1 - Bulgaria" << endl;
+    cout << "2 - Ukraine" << endl;
+    cout << "3 - Russia" << endl;
+    cout << "4 - Turkey" << endl;
+    cout << "5 - Georgia" << endl;
+    cout << "6 - Romania" << endl;
+}
+
 void showDolphinTypesMenu()
 {
     cout << "Types of dolphins in The Black Sea" << endl << endl;
