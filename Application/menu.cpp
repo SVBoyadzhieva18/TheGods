@@ -2,6 +2,20 @@
 #include <string>
 using namespace std;
 
+struct DATA
+{
+    int day;
+    int month;
+    int year;
+};
+
+struct DOLPHINS
+{
+    string seaStation;
+    string dolphinType;
+    int chipNumber;
+};
+
 void showDolphinTypesMenu()
 {
     cout << "Types of dolphins in The Black Sea" << endl << endl;
