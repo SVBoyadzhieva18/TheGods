@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-struct DATA
+struct DATE
 {
     int day;
     int month;
@@ -25,6 +25,7 @@ void showSeaStationsMenu()
     cout << "4 - Turkey" << endl;
     cout << "5 - Georgia" << endl;
     cout << "6 - Romania" << endl;
+    cout << endl;
 }
 
 void showDolphinTypesMenu()
@@ -33,6 +34,70 @@ void showDolphinTypesMenu()
     cout << "1 - Bottlenose dolphin" << endl;
     cout << "2 - Common dolphin" << endl;
     cout << "3 - Harbor porpoises" << endl;
+}
+
+void addNewDolphin(DOLPHINS* dolphins, DATE* data, int& dolphinIndex)
+{
+    showSeaStationsMenu();
+    cout << "Your station (choose an option): ";
+
+    int userStation;
+    cin >> userStation;
+
+    switch (userStation)
+    {
+        case 1:
+            dolphins[dolphinIndex].seaStation = "Bulgaria";
+            break;
+        case 2:
+            dolphins[dolphinIndex].seaStation = "Ukraine";
+            break;
+        case 3:
+            dolphins[dolphinIndex].seaStation = "Russia";
+            break;
+        case 4:
+            dolphins[dolphinIndex].seaStation = "Turkey";
+            break;
+        case 5:
+            dolphins[dolphinIndex].seaStation = "Georgia";
+            break;
+        case 6:
+            dolphins[dolphinIndex].seaStation = "Romania";
+            break;
+        default:
+            addNewDolphin(dolphins, data, dolphinIndex);
+    }
+
+    showDolphinTypesMenu();
+    int userDolphinType;
+    cin >> userDolphinType;
+
+    switch (userDolphinType)
+    {
+        case 1:
+            dolphins[dolphinIndex].dolphinType = "Bottlenose dolphin";
+            break;
+        case 2:
+            dolphins[dolphinIndex].dolphinType = "Common dolphin";
+            break;
+        case 3:
+            dolphins[dolphinIndex].dolphinType = "Harbor porpoises";
+            break;
+        default:
+            addNewDolphin(dolphins, data, dolphinIndex);
+    }
+
+    int userChipNumber;
+    cout << "What number was the chip you put on the dolphin: ";
+    cin >> userChipNumber;
+
+    cout << "Enter the date today:" << endl;
+    cout << "    Day: ";
+    cin >> dolphins[dolphinIndex].day;
+    cout << "    Month: ";
+    cin >> dolphins[dolphinIndex].month;
+    cout << "    Year: ";
+    cin >> dolphins[dolphinIndex].year;
 }
 
 void showMenu()
