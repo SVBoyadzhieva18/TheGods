@@ -1,5 +1,5 @@
 body{
-background: url(https://th.bing.com/th/id/OIP.cpGsoSmyOOjgutGBtoMyEAHaEK?pid=ImgDet&rs=1);
+background: url(https://i.pinimg.com/originals/21/6e/f8/216ef8d3f6a176e6d0d60bd6588af99f.jpg);
 background-size: cover;
 color: #fff;
 }
@@ -20,6 +20,7 @@ h1{
 }
 
 p{
+color: black;
 font-size: 20px;
 margin: 15px 0;
 }
