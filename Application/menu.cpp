@@ -145,6 +145,23 @@ void sortByChipNumber(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 	}
 }
 
+void sortAlphabeticallySeaStations(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
+{
+	int count = dolphinsIndex;
+	for (int i = 0; i < count - 1; i++)
+	{
+		if (dolphin[i].seaStation > dolphin[i + 1].seaStation)
+		{
+			swap(dolphin[i], dolphin[i + 1]);
+		}
+	}
+	for (int i = 0; i < count; i++)
+	{
+		showDolphin(dolphin[i], date[i]);
+	}
+	cout << endl << endl;
+}
+
 void showMenu(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 {
 	int c;
