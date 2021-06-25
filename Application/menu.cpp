@@ -67,9 +67,9 @@ void addDolphin(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 
 	cin.ignore();
 
-	cout << "Dolphin type: ";
 	int userDolphinType;
 	showDolphinTypesMenu();
+	cout << "Dolphin type: ";
 	cin >> userDolphinType;
 	switch (userDolphinType)
 	{
@@ -87,7 +87,7 @@ void addDolphin(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 	cout << "Chip Number: ";
 	cin >> dolphin[dolphinsIndex].chipNumber;
 
-	cout << "What date is today?"
+	cout << "What date is today?" << endl;
 	cout << "    Day: ";
 	cin >> date[dolphinsIndex].day;
 	cout << "    Month: ";
@@ -158,5 +158,12 @@ void showMenu(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 
 int main()
 {
-	showMenu();
+	int dolphinsIndex = 0;
+	DOLPHINS dolphin[10];
+	DATE date[10];
+	bool doShowMenu = true;
+	do
+	{
+		showMenu(dolphin, date, dolphinsIndex);
+	} while (doShowMenu);
 }
