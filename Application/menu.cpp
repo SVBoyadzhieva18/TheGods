@@ -100,14 +100,35 @@ void addDolphin(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 }
 
 
-void showMenu()
+void showDolphin(DOLPHINS dolphin, DATE date)
+{
+	cout << endl;
+	cout << "Sea station: " << dolphin.seaStation << endl;
+	cout << "Dolphin Type: " << dolphin.dolphinType << endl;
+	cout << "Chip Number: " << dolphin.chipNumber << endl;
+	cout << "From: " << date.day << "/" << date.month << "/" << date.year << endl;
+	cout << endl;
+}
+
+void showAllDolphins(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
+{
+	cout << endl;
+	cout << "You have entered the following patient:" << endl;
+	for (int i = 0; i < dolphinsIndex; i++)
+	{
+		showDolphin(dolphin[i], date[i]);
+	}
+}
+
+
+void showMenu(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 {
 	int c;
     do
     {
         cout << "\nMain menu\n\n";
-        cout << "1 - Enter text\n";
-        cout << "2 - View text\n";
+        cout << "1 - Add a dolphin\n";
+        cout << "2 - View all dolphins\n";
         cout << "3 - Sort text\n";
         cout << "4 - Search text\n";
         cout << "5 - Delete text\n";
@@ -118,8 +139,10 @@ void showMenu()
         switch (c)
         {
             case 1:
+				addDolphin(dolphin, date, dolphinsIndex);
                 break;
             case 2:
+				showAllDolphins(dolphin, date, dolphinsIndex);
                 break;
             case 3:
                 break;
