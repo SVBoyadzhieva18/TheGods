@@ -120,6 +120,30 @@ void showAllDolphins(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 	}
 }
 
+void showSortMenu()
+{
+	cout << "Sort Menu" << endl;
+	cout << "1 - Sort by chip number (smallest to largest)" << endl;
+	cout << "2 - Sort by alphabetical order (sea station)" << endl;
+	cout << "3 - Sort by alphabetical order (dolphin type)" << endl;
+	cout << "4 - Sort by date (newest to oldest)" << endl;
+}
+
+void sortByChipNumber(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
+{
+	int count = dolphinsIndex;
+	for (int i = 0; i < count - 1; i++)
+	{
+		if (dolphin[i].chipNumber > dolphin[i + 1].chipNumber)
+		{
+			swap(dolphin[i], dolphin[i + 1]);
+		}
+	}
+	for (int i = 0; i < count; i++)
+	{
+		showDolphin(dolphin[i], date[i]);
+	}
+}
 
 void showMenu(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 {
@@ -133,7 +157,7 @@ void showMenu(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
         cout << "4 - Search text\n";
         cout << "5 - Delete text\n";
         cout << "6 - Quit program\n";
-        cout << "Your choice:";
+        cout << "Your choice: ";
         cin >> c;
 
         switch (c)
@@ -145,6 +169,7 @@ void showMenu(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 				showAllDolphins(dolphin, date, dolphinsIndex);
                 break;
             case 3:
+				sortByChipNumber(dolphin, date, dolphinsIndex);
                 break;
             case 4:
                 break;
