@@ -36,69 +36,69 @@ void showDolphinTypesMenu()
     cout << "3 - Harbor porpoises" << endl;
 }
 
-void addNewDolphin(DOLPHINS* dolphins, DATE* data, int& dolphinIndex)
+void addDolphin(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 {
-    showSeaStationsMenu();
-    cout << "Your station (choose an option): ";
+	showSeaStationsMenu();
+	cout << endl;
+	cout << "Sea station: ";
+	int userSeaStation;
+	cin >> userSeaStation;
+	switch (userSeaStation)
+	{
+	case 1:
+		dolphin[dolphinsIndex].seaStation = "Bulgaria";
+		break;
+	case 2:
+		dolphin[dolphinsIndex].seaStation = "Ukraine";
+		break;
+	case 3:
+		dolphin[dolphinsIndex].seaStation = "Russia";
+		break;
+	case 4:
+		dolphin[dolphinsIndex].seaStation = "Turkey";
+		break;
+	case 5:
+		dolphin[dolphinsIndex].seaStation = "Georgia";
+		break;
+	case 6:
+		dolphin[dolphinsIndex].seaStation = "Romania";
+		break;
+	}
 
-    int userStation;
-    cin >> userStation;
+	cin.ignore();
 
-    switch (userStation)
-    {
-        case 1:
-            dolphins[dolphinIndex].seaStation = "Bulgaria";
-            break;
-        case 2:
-            dolphins[dolphinIndex].seaStation = "Ukraine";
-            break;
-        case 3:
-            dolphins[dolphinIndex].seaStation = "Russia";
-            break;
-        case 4:
-            dolphins[dolphinIndex].seaStation = "Turkey";
-            break;
-        case 5:
-            dolphins[dolphinIndex].seaStation = "Georgia";
-            break;
-        case 6:
-            dolphins[dolphinIndex].seaStation = "Romania";
-            break;
-        default:
-            addNewDolphin(dolphins, data, dolphinIndex);
-    }
+	cout << "Dolphin type: ";
+	int userDolphinType;
+	showDolphinTypesMenu();
+	cin >> userDolphinType;
+	switch (userDolphinType)
+	{
+	case 1:
+		dolphin[dolphinsIndex].dolphinType = "Bottlenose dolphin";
+		break;
+	case 2:
+		dolphin[dolphinsIndex].dolphinType = "Common dolphin";
+		break;
+	case 3:
+		dolphin[dolphinsIndex].dolphinType = "Harbor porpoises";
+		break;
+	}
 
-    showDolphinTypesMenu();
-    int userDolphinType;
-    cin >> userDolphinType;
+	cout << "Chip Number: ";
+	cin >> dolphin[dolphinsIndex].chipNumber;
 
-    switch (userDolphinType)
-    {
-        case 1:
-            dolphins[dolphinIndex].dolphinType = "Bottlenose dolphin";
-            break;
-        case 2:
-            dolphins[dolphinIndex].dolphinType = "Common dolphin";
-            break;
-        case 3:
-            dolphins[dolphinIndex].dolphinType = "Harbor porpoises";
-            break;
-        default:
-            addNewDolphin(dolphins, data, dolphinIndex);
-    }
+	cout << "What date is today?"
+	cout << "    Day: ";
+	cin >> date[dolphinsIndex].day;
+	cout << "    Month: ";
+	cin >> date[dolphinsIndex].month;
+	cout << "    Year: ";
+	cin >> date[dolphinsIndex].year;
 
-    int userChipNumber;
-    cout << "What number was the chip you put on the dolphin: ";
-    cin >> userChipNumber;
-
-    cout << "Enter the date today:" << endl;
-    cout << "    Day: ";
-    cin >> dolphins[dolphinIndex].day;
-    cout << "    Month: ";
-    cin >> dolphins[dolphinIndex].month;
-    cout << "    Year: ";
-    cin >> dolphins[dolphinIndex].year;
+	dolphinsIndex++;
+	cout << endl;
 }
+
 
 void showMenu()
 {
