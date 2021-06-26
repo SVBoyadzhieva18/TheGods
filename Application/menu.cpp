@@ -36,6 +36,34 @@ void showDolphinTypesMenu()
     cout << "3 - Harbor porpoises" << endl;
 }
 
+void enterDate(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
+{
+	cout << "    Day: ";
+	cin >> date[dolphinsIndex].day;
+	while (date[dolphinsIndex].day > 30 || date[dolphinsIndex].day < 1)
+	{
+		cout << "You have to enter a valid date!" << endl;
+		cout << "    Day: ";
+		cin >> date[dolphinsIndex].day;
+	}
+	cout << "    Month: ";
+	cin >> date[dolphinsIndex].month;
+	while (date[dolphinsIndex].month > 12 || date[dolphinsIndex].month < 1)
+	{
+		cout << "You have to enter a valid date!" << endl;
+		cout << "    Month: ";
+		cin >> date[dolphinsIndex].month;
+	}
+	cout << "    Year: ";
+	cin >> date[dolphinsIndex].year;
+	while (date[dolphinsIndex].year > 2027 || date[dolphinsIndex].year < 2009)
+	{
+		cout << "You have to enter a valid date!" << endl;
+		cout << "    Year: ";
+		cin >> date[dolphinsIndex].year;
+	}
+}
+
 void addDolphin(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 {
 	showSeaStationsMenu();
@@ -88,13 +116,7 @@ void addDolphin(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 	cin >> dolphin[dolphinsIndex].chipNumber;
 
 	cout << "What date is today?" << endl;
-	cout << "    Day: ";
-	cin >> date[dolphinsIndex].day;
-	cout << "    Month: ";
-	cin >> date[dolphinsIndex].month;
-	cout << "    Year: ";
-	cin >> date[dolphinsIndex].year;
-
+	enterDate(dolphin, date, dolphinsIndex);
 	dolphinsIndex++;
 	cout << endl;
 }
