@@ -129,33 +129,62 @@ void showSortMenu()
 	cout << "4 - Sort by date (newest to oldest)" << endl;
 }
 
-void sortByChipNumber(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
+void showSortMenu()
 {
-	int count = dolphinsIndex;
-	for (int i = 0; i < count - 1; i++)
+	cout << "Sort Menu" << endl;
+	cout << "1 - Sort by alphabetical order (sea station)" << endl;
+	cout << "2 - Sort by alphabetical order (dolphin type)" << endl;
+	cout << "3 - Sort by date (newest to oldest)" << endl;
+}
+
+void sortAlphabeticallySeaStations(DOLPHINS* dolphin, DATE* date, int& dolphinIndex)
+{
+	int j = 0;
+	bool swap = true;
+	string temp;
+	while (swap)
 	{
-		if (dolphin[i].chipNumber > dolphin[i + 1].chipNumber)
+		swap = false;
+		j++;
+		for (int i = 0; i < dolphinIndex - j; i++)
 		{
-			swap(dolphin[i], dolphin[i + 1]);
+			if (dolphin[i].seaStation > dolphin[i + 1].seaStation)
+			{
+				temp = dolphin[i].seaStation;
+				dolphin[i].seaStation = dolphin[i + 1].seaStation;
+				dolphin[i + 1].seaStation = temp;
+				swap = true;
+			}
 		}
 	}
-	for (int i = 0; i < count; i++)
+	for (int i = 0; i < dolphinIndex; i++)
 	{
 		showDolphin(dolphin[i], date[i]);
 	}
+	cout << endl << endl;
 }
 
-void sortAlphabeticallySeaStations(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
+void sortAlphabeticallyDolphinType(DOLPHINS* dolphin, DATE* date, int& dolphinIndex)
 {
-	int count = dolphinsIndex;
-	for (int i = 0; i < count - 1; i++)
+	int j = 0;
+	bool swap = true;
+	string temp;
+	while (swap)
 	{
-		if (dolphin[i].seaStation > dolphin[i + 1].seaStation)
+		swap = false;
+		j++;
+		for (int i = 0; i < dolphinIndex - j; i++)
 		{
-			swap(dolphin[i], dolphin[i + 1]);
+			if (dolphin[i].dolphinType > dolphin[i + 1].dolphinType)
+			{
+				temp = dolphin[i].dolphinType;
+				dolphin[i].dolphinType = dolphin[i + 1].dolphinType;
+				dolphin[i + 1].dolphinType = temp;
+				swap = true;
+			}
 		}
 	}
-	for (int i = 0; i < count; i++)
+	for (int i = 0; i < dolphinIndex; i++)
 	{
 		showDolphin(dolphin[i], date[i]);
 	}
