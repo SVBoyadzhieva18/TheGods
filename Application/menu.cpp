@@ -191,40 +191,113 @@ void sortAlphabeticallyDolphinType(DOLPHINS* dolphin, DATE* date, int& dolphinIn
 	cout << endl << endl;
 }
 
-void showMenu(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
+void sortByDate(DOLPHINS* dolphin, DATE* date, int& dolphinIndex)
+{
+	int j = 0;
+	bool swap = true;
+	int temp;
+	while (swap)
+	{
+		swap = false;
+		j++;
+		for (int i = 0; i < dolphinIndex - j; i++)
+		{
+			if (date[i].year != date[i + 1].year)
+			{
+				if (date[i].year < date[i + 1].year)
+				{
+					temp = date[i].year;
+					date[i].year = date[i + 1].year;
+					date[i + 1].year = temp;
+					swap = true;
+				}
+
+			}
+			else
+			{
+				if (date[i].month != date[i + 1].month)
+				{
+					if (date[i].month < date[i + 1].month)
+					{
+						temp = date[i].month;
+						date[i].month = date[i + 1].month;
+						date[i + 1].month = temp;
+						swap = true;
+					}
+				}
+				else
+				{
+					if (date[i].day < date[i + 1].day)
+					{
+						temp = date[i].day;
+						date[i].day = date[i + 1].day;
+						date[i + 1].day = temp;
+						swap = true;
+					}
+				}
+			}
+		}
+		for (int i = 0; i < dolphinIndex; i++)
+		{
+			showDolphin(dolphin[i], date[i]);
+		}
+		cout << endl;
+		cout << endl;
+	}
+}
+
+void showSortMenu(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
+{
+	cout << "Sort Menu" << endl;
+	cout << "1 - Sort by alphabetical order (sea station)" << endl;
+	cout << "2 - Sort by alphabetical order (dolphin type)" << endl;
+	cout << "3 - Sort by date (newest to oldest)" << endl;
+	int userChoice;
+	cin >> userChoice;
+	switch (userChoice)
+	{
+	case 1:
+		sortAlphabeticallySeaStations(dolphin, date, dolphinsIndex);
+		break;
+	case 2:
+		sortAlphabeticallyDolphinType(dolphin, date, dolphinsIndex);
+		break;
+	case 3:
+		sortByDate(dolphin, date, dolphinsIndex);
+		break;
+	}
+}
+
+bool showMenu(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 {
 	int c;
-    do
-    {
-        cout << "\nMain menu\n\n";
-        cout << "1 - Add a dolphin\n";
-        cout << "2 - View all dolphins\n";
-        cout << "3 - Sort text\n";
-        cout << "4 - Search text\n";
-        cout << "5 - Delete text\n";
-        cout << "6 - Quit program\n";
-        cout << "Your choice: ";
-        cin >> c;
+	cout << "\nMain menu\n\n";
+    cout << "1 - Add a dolphin\n";
+    cout << "2 - View all dolphins\n";
+    cout << "3 - Sort text\n";   
+	cout << "4 - Search text\n";
+    cout << "5 - Quit program\n";
+    cout << "Your choice: ";
+    cin >> c;
 
-        switch (c)
-        {
-            case 1:
-				addDolphin(dolphin, date, dolphinsIndex);
-                break;
-            case 2:
-				showAllDolphins(dolphin, date, dolphinsIndex);
-                break;
-            case 3:
-				sortByChipNumber(dolphin, date, dolphinsIndex);
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-
-        }
+	switch (c)
+	{
+		case 1:
+			addDolphin(dolphin, date, dolphinsIndex);
+			break;
+		case 2:
+			showAllDolphins(dolphin, date, dolphinsIndex);
+			break;
+		case 3:
+			showSortMenu(dolphin, date, dolphinsIndex);
+			break;
+		case 4:
+			break;
+		case 5:
+			return false;
+			break;
     }
-    while (c != 6);
+	return true;
 }
 
 int main()
@@ -235,6 +308,6 @@ int main()
 	bool doShowMenu = true;
 	do
 	{
-		showMenu(dolphin, date, dolphinsIndex);
+		doShowMenu = showMenu(dolphin, date, dolphinsIndex);
 	} while (doShowMenu);
 }
