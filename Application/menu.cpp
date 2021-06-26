@@ -67,7 +67,6 @@ void enterDate(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 void addDolphin(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 {
 	showSeaStationsMenu();
-	cout << endl;
 	cout << "Sea station: ";
 	int userSeaStation;
 	cin >> userSeaStation;
@@ -255,7 +254,7 @@ void searchByDolphinType(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 	}
 	for (int i = 0; i < dolphinsIndex; i++)
 	{
-		if (dolphin[i].seaStation == userDolphinType)
+		if (dolphin[i].dolphinType == userDolphinType)
 		{
 			showDolphin(dolphin[i], date[i]);
 		}
@@ -283,6 +282,7 @@ bool showSortMenu(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 	cout << "1 - Sort by alphabetical order (sea station)" << endl;
 	cout << "2 - Sort by alphabetical order (dolphin type)" << endl;
 	cout << "3 - Go back to the main menu" << endl;
+	cout << "Your choice: ";
 	int userChoice;
 	cin >> userChoice;
 	switch (userChoice)
@@ -307,6 +307,7 @@ bool showSearchMenu(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 	cout << "2 - Search by dolphin type" << endl;
 	cout << "3 - Search by chip number" << endl;
 	cout << "4 - Go back to the main menu" << endl;
+	cout << "\nYour choice: ";
 	int userChoice;
 	cin >> userChoice;
 	switch (userChoice)
