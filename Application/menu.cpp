@@ -240,6 +240,20 @@ void searchByDolphinType(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 	}
 }
 
+void searchByChipNumber(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
+{
+	int userChipNumber;
+	cout << "\nEnter the chip number you want to search for: ";
+	cin >> userChipNumber;
+	for (int i = 0; i < dolphinsIndex; i++)
+	{
+		if (dolphin[i].chipNumber == userChipNumber)
+		{
+			showDolphin(dolphin[i], date[i]);
+		}
+	}
+}
+
 bool showSortMenu(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 {
 	cout << endl;
@@ -282,7 +296,7 @@ bool showSearchMenu(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 		searchByDolphinType(dolphin, date, dolphinsIndex);
 		break;
 	case 3:
-
+		searchByChipNumber(dolphin, date, dolphinsIndex);
 		break;
 	case 4:
 		return false;
