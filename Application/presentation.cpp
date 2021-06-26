@@ -1,39 +1,27 @@
 #include <iostream>
 #include <string>
+#include "data.h"
+#include "presentation.h"
 using namespace std;
-
-struct DATE
-{
-    int day;
-    int month;
-    int year;
-};
-
-struct DOLPHINS
-{
-    string seaStation;
-    string dolphinType;
-    int chipNumber;
-};
 
 void showSeaStationsMenu()
 {
-    cout << "Stations in The Black Sea" << endl << endl;
-    cout << "1 - Bulgaria" << endl;
-    cout << "2 - Ukraine" << endl;
-    cout << "3 - Russia" << endl;
-    cout << "4 - Turkey" << endl;
-    cout << "5 - Georgia" << endl;
-    cout << "6 - Romania" << endl;
-    cout << endl;
+	cout << "Stations in The Black Sea" << endl << endl;
+	cout << "1 - Bulgaria" << endl;
+	cout << "2 - Ukraine" << endl;
+	cout << "3 - Russia" << endl;
+	cout << "4 - Turkey" << endl;
+	cout << "5 - Georgia" << endl;
+	cout << "6 - Romania" << endl;
+	cout << endl;
 }
 
 void showDolphinTypesMenu()
 {
-    cout << "Types of dolphins in The Black Sea" << endl << endl;
-    cout << "1 - Bottlenose dolphin" << endl;
-    cout << "2 - Common dolphin" << endl;
-    cout << "3 - Harbor porpoises" << endl;
+	cout << "Types of dolphins in The Black Sea" << endl << endl;
+	cout << "1 - Bottlenose dolphin" << endl;
+	cout << "2 - Common dolphin" << endl;
+	cout << "3 - Harbor porpoises" << endl;
 }
 
 void enterDate(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
@@ -58,7 +46,7 @@ void enterDate(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 	cin >> date[dolphinsIndex].year;
 	while (date[dolphinsIndex].year > 2027 || date[dolphinsIndex].year < 2009)
 	{
-		cout << "You have to enter a valid date!" << endl;
+		cout << "You have to enter a valid date! The year should be between 2009 and 2027" << endl;
 		cout << "    Year: ";
 		cin >> date[dolphinsIndex].year;
 	}
@@ -120,7 +108,6 @@ void addDolphin(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 	cout << endl;
 }
 
-
 void showDolphin(DOLPHINS dolphin, DATE date)
 {
 	cout << endl;
@@ -139,60 +126,6 @@ void showAllDolphins(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 	{
 		showDolphin(dolphin[i], date[i]);
 	}
-}
-
-void sortAlphabeticallySeaStations(DOLPHINS* dolphin, DATE* date, int& dolphinIndex)
-{
-	int count = 0;
-	bool swap = true;
-	string temp;
-	while (swap)
-	{
-		swap = false;
-		count++;
-		for (int i = 0; i < dolphinIndex - count; i++)
-		{
-			if (dolphin[i].seaStation > dolphin[i + 1].seaStation)
-			{
-				temp = dolphin[i].seaStation;
-				dolphin[i].seaStation = dolphin[i + 1].seaStation;
-				dolphin[i + 1].seaStation = temp;
-				swap = true;
-			}
-		}
-	}
-	for (int i = 0; i < dolphinIndex; i++)
-	{
-		showDolphin(dolphin[i], date[i]);
-	}
-	cout << endl << endl;
-}
-
-void sortAlphabeticallyDolphinType(DOLPHINS* dolphin, DATE* date, int& dolphinIndex)
-{
-	int count = 0;
-	bool swap = true;
-	string temp;
-	while (swap)
-	{
-		swap = false;
-		count++;
-		for (int i = 0; i < dolphinIndex - count; i++)
-		{
-			if (dolphin[i].dolphinType > dolphin[i + 1].dolphinType)
-			{
-				temp = dolphin[i].dolphinType;
-				dolphin[i].dolphinType = dolphin[i + 1].dolphinType;
-				dolphin[i + 1].dolphinType = temp;
-				swap = true;
-			}
-		}
-	}
-	for (int i = 0; i < dolphinIndex; i++)
-	{
-		showDolphin(dolphin[i], date[i]);
-	}
-	cout << endl << endl;
 }
 
 void searchBySeaStation(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
@@ -331,56 +264,43 @@ bool showMenu(DOLPHINS* dolphin, DATE* date, int& dolphinsIndex)
 {
 	int c;
 	cout << "\nMain menu\n\n";
-    cout << "1 - Add a dolphin\n";
-    cout << "2 - View all dolphins\n";
-    cout << "3 - Sort text\n";   
+	cout << "1 - Add a dolphin\n";
+	cout << "2 - View all dolphins\n";
+	cout << "3 - Sort text\n";
 	cout << "4 - Search text\n";
-    cout << "5 - Quit program\n";
-    cout << "Your choice: ";
-    cin >> c;
+	cout << "5 - Quit program\n";
+	cout << "Your choice: ";
+	cin >> c;
 
 	switch (c)
 	{
-		case 1:
-			addDolphin(dolphin, date, dolphinsIndex);
-			break;
-		case 2:
-			showAllDolphins(dolphin, date, dolphinsIndex);
-			break;
-		case 3:
-		{
-			bool doShowSortMenu = true;
-			do
-			{
-				doShowSortMenu = showSortMenu(dolphin, date, dolphinsIndex);
-			} while (doShowSortMenu);
-			break;
-		}
-		case 4:
-		{
-			bool doShowSearchMenu = true;
-			do
-			{
-				doShowSearchMenu = showSearchMenu(dolphin, date, dolphinsIndex);
-			} while (doShowSearchMenu);
-			break;
-		}
-			break;
-		case 5:
-			return false;
-			break;
-    }
-	return true;
-}
-
-int main()
-{
-	int dolphinsIndex = 0;
-	DOLPHINS dolphin[10];
-	DATE date[10];
-	bool doShowMenu = true;
-	do
+	case 1:
+		addDolphin(dolphin, date, dolphinsIndex);
+		break;
+	case 2:
+		showAllDolphins(dolphin, date, dolphinsIndex);
+		break;
+	case 3:
 	{
-		doShowMenu = showMenu(dolphin, date, dolphinsIndex);
-	} while (doShowMenu);
+		bool doShowSortMenu = true;
+		do
+		{
+			doShowSortMenu = showSortMenu(dolphin, date, dolphinsIndex);
+		} while (doShowSortMenu);
+		break;
+	}
+	case 4:
+	{
+		bool doShowSearchMenu = true;
+		do
+		{
+			doShowSearchMenu = showSearchMenu(dolphin, date, dolphinsIndex);
+		} while (doShowSearchMenu);
+		break;
+	}
+	case 5:
+		return false;
+		break;
+	}
+	return true;
 }
