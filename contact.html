@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact us!</title>
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="icon" href="pics/logo.png" type="image/x-icon" />
+</head>
+<body>
+    <header>
+        <div class="menu-toggle" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="overlay"></div>
+        <div class="container">
+            <nav>
+                <h1 class="brand"><a href="index.html">Logo</a></h1>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <form class="form" action="../index.html" method="get">
+                <h1 class="heading">Contact us!</h1>
+                <label for="FirstName">First Name:<br /></label>
+                <input type="text" name="FirstName" required placeholder="First Name" pattern="[A-Z]{1}[a-z]{20}" title="Invalid first name"><br />
+                <label for="LastName">Last Name:<br /></label>
+                <input type="text" name="LastName" required placeholder="Last Name" pattern="[A-Z]{1}[a-z]{20}" title="Invalid last name"><br />
+                <label for="email">Email:<br /></label>
+                <input type="email" name="email" required placeholder="Email"><br>
+                <label>Your feedback:</label>
+                <textarea rows="5" placeholder="Your feedback" required></textarea>
+                <div class="btn">
+                    <input type="Submit" value="Send feedback">
+                </div>
+        </form>
+
+</header>
+
+    
+</body>
+</html>
