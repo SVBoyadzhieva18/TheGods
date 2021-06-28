@@ -191,3 +191,25 @@ nav ul li a:hover::after{
   }
   
 }
+
+.button{
+display: block;
+background: lightblue;
+color: #fff;
+padding: 15px;
+cursor: pointer;
+text-decoration: none;
+width: 200px;
+align-items: center;
+border-radius: 5px;
+font-size: 20px;
+left: 500px;
+}
+
+.button:hover{
+    background: lightgreen;
+}
+p{
+    color:white;
+    padding: 15px;
+}
