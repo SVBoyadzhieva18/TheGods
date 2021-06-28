@@ -41,7 +41,7 @@ header{
 }
 
 nav{
-	padding-top: 5rem;
+	padding-top: 3rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -190,4 +190,8 @@ nav ul li a:hover::after{
 	  opacity: 1;
   }
   
+}
+
+.logo {
+	width: 100px;
 }
