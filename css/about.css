@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
@@ -21,14 +22,14 @@ header {
 	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0,0,0,.5)), url("https://i.postimg.cc/RFVB6SM1/pic1.jpg") center no-repeat;
 	background-size: cover;
 	position: relative;
-	overflow: auto;
-	padding-bottom: 30px;
+	overflow-x: hidden;
 }
 
 .container {
 	max-width: 120rem;
 	width: 90%;
 	margin: 0 auto;
+	margin-left: 100px;
 }
 
 .menu-toggle {
@@ -48,8 +49,7 @@ nav {
 	justify-content: space-between;
 	align-items: center;
 	text-transform: uppercase;
-	font-size: 1rem;
-	margin-bottom: 60px;
+	font-size: 1.6rem;
 }
 
 .brand {
@@ -89,6 +89,10 @@ nav ul {
 			animation-delay: 1.5s;
 		}
 
+		nav ul li:nth-child(5) {
+			animation-delay: 2s;
+		}
+
 		nav ul li a {
 			padding: 1rem 0;
 			margin: 0 3rem;
@@ -100,27 +104,27 @@ nav ul {
 				margin-right: 0;
 			}
 
-			nav ul li a::before,
-			nav ul li a::after {
-				content: '';
-				position: absolute;
-				width: 100%;
-				height: 2px;
-				background-color: crimson;
-				left: 0;
-				transform: scaleX(0);
-				transition: all .5s;
-			}
+		nav ul li .ani::before,
+		nav ul li .ani::after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: crimson;
+			left: 0;
+			transform: scaleX(0);
+			transition: all .5s;
+		}
 
-			nav ul li a::before {
-				top: 0;
-				transform-origin: left;
-			}
+		nav ul li .ani::before {
+			top: 0;
+			transform-origin: left;
+		}
 
-			nav ul li a::after {
-				bottom: 0;
-				transform-origin: right;
-			}
+		nav ul li .ani::after {
+			bottom: 0;
+			transform-origin: right;
+		}
 
 .overlay {
 	background-color: rgba(0,0,0,.95);
@@ -189,16 +193,38 @@ nav ul li a:hover::after {
 		opacity: 1;
 	}
 }
+
+.logo {
+	width: 100px;
+}
+
+.signup, .login {
+	text-align: center;
+	position: fixed;
+	background-color: #5da0e3;
+	padding: 10px 10px 10px 10px;
+	width: 100px;
+	margin-top: -10px;
+	border-radius: 5px;
+}
+
+.signup {
+	margin-left: 163px;
+	background-color: #c23838;
+}
+
 nav {
 	font-size: 1.6rem;
 }
 
-.maincontainer{
+.maincontainer {
 	position: relative;
 	width: 250px;
 	height: 320px;
+	margin-top: 70px;
 }
-.thecard{
+
+.thecard {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -206,46 +232,50 @@ nav {
 	transition: all 0.5s ease;
 	left: 350px;
 }
-.thecard:hover{
-	transform:rotateY(180deg);
-	
-}
-.thefront{
+
+	.thecard:hover {
+		transform: rotateY(180deg);
+	}
+
+.thefront {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
 	background: lightblue;
-	color:#333;
+	color: #333;
 	text-align: center;
 	border-radius: 20px;
 	font-size: 18px;
 	font-weight: bold;
 }
-.theback{
+
+.theback {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
 	background: lightblue;
-	color:#333;
+	color: #333;
 	text-align: center;
 	border-radius: 20px;
 	font-size: 18px;
 	font-weight: bold;
 	transform: rotateY(180deg);
 }
+
 .img1 {
 	width: 250px;
 	border-radius: 20px;
 }
 
-.maincontainer2{
+.maincontainer2 {
 	position: relative;
 	width: 250px;
 	height: 320px;
 }
-.thecard2{
+
+.thecard2 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -254,46 +284,50 @@ nav {
 	left: 650px;
 	bottom: 320px;
 }
-.thecard2:hover{
-	transform:rotateY(180deg);
-	
-}
-.thefront2{
+
+	.thecard2:hover {
+		transform: rotateY(180deg);
+	}
+
+.thefront2 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
 	background: lightblue;
-	color:#333;
+	color: #333;
 	text-align: center;
 	border-radius: 20px;
 	font-size: 18px;
 	font-weight: bold;
 }
-.theback2{
+
+.theback2 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
 	background: lightblue;
-	color:#333;
+	color: #333;
 	text-align: center;
 	border-radius: 20px;
 	font-size: 18px;
 	font-weight: bold;
 	transform: rotateY(180deg);
 }
+
 .img2 {
 	width: 250px;
 	border-radius: 20px;
 }
 
-.maincontainer3{
+.maincontainer3 {
 	position: relative;
 	width: 250px;
 	height: 320px;
 }
-.thecard3{
+
+.thecard3 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -302,231 +336,246 @@ nav {
 	left: 950px;
 	bottom: 640px;
 }
-.thecard3:hover{
-	transform:rotateY(180deg);
-	
-}
-.thefront3{
+
+	.thecard3:hover {
+		transform: rotateY(180deg);
+	}
+
+.thefront3 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
 	background: lightblue;
-	color:#333;
+	color: #333;
 	text-align: center;
 	border-radius: 20px;
 	font-size: 18px;
 	font-weight: bold;
 }
-.theback3{
+
+.theback3 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
 	background: lightblue;
-	color:#333;
+	color: #333;
 	text-align: center;
 	border-radius: 20px;
 	font-size: 18px;
 	font-weight: bold;
 	transform: rotateY(180deg);
 }
+
 .img3 {
 	width: 250px;
 	border-radius: 20px;
 }
 
-.maincontainer4{
+.maincontainer4 {
 	position: relative;
 	width: 250px;
 	height: 320px;
 }
-.thecard4{
+
+.thecard4 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	transform-style: preserve-3d;
 	transition: all 0.5s ease;
-
 	left: 1250px;
 	bottom: 960px;
 }
-.thecard4:hover{
-	transform:rotateY(180deg);
-	
-}
-.thefront4{
+
+	.thecard4:hover {
+		transform: rotateY(180deg);
+	}
+
+.thefront4 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
 	background: lightblue;
-	color:#333;
+	color: #333;
 	text-align: center;
 	border-radius: 20px;
 	font-size: 18px;
 	font-weight: bold;
 }
-.theback4{
+
+.theback4 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
 	background: lightblue;
-	color:#333;
+	color: #333;
 	text-align: center;
 	border-radius: 20px;
 	font-size: 18px;
 	font-weight: bold;
 	transform: rotateY(180deg);
 }
+
 .img4 {
 	width: 250px;
 	border-radius: 20px;
 }
 
-.maincontainer5{
+.maincontainer5 {
 	position: relative;
 	width: 250px;
 	height: 320px;
 }
-.thecard5{
+
+.thecard5 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	transform-style: preserve-3d;
 	transition: all 0.5s ease;
-
 	left: 500px;
 	bottom: 930px;
 }
-.thecard5:hover{
-	transform:rotateY(180deg);
-	
-}
-.thefront5{
+
+	.thecard5:hover {
+		transform: rotateY(180deg);
+	}
+
+.thefront5 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
 	background: lightblue;
-	color:#333;
+	color: #333;
 	text-align: center;
 	border-radius: 20px;
 	font-size: 18px;
 	font-weight: bold;
 }
-.theback5{
+
+.theback5 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
 	background: lightblue;
-	color:#333;
+	color: #333;
 	text-align: center;
 	border-radius: 20px;
 	font-size: 18px;
 	font-weight: bold;
 	transform: rotateY(180deg);
 }
+
 .img5 {
 	width: 250px;
 	border-radius: 20px;
 }
 
-.maincontainer6{
+.maincontainer6 {
 	position: relative;
 	width: 250px;
 	height: 320px;
 }
-.thecard6{
+
+.thecard6 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	transform-style: preserve-3d;
 	transition: all 0.5s ease;
-
 	left: 800px;
 	bottom: 1250px;
 }
-.thecard6:hover{
-	transform:rotateY(180deg);
-	
-}
-.thefront6{
+
+	.thecard6:hover {
+		transform: rotateY(180deg);
+	}
+
+.thefront6 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
 	background: lightblue;
-	color:#333;
+	color: #333;
 	text-align: center;
 	border-radius: 20px;
 	font-size: 18px;
 	font-weight: bold;
 }
-.theback6{
+
+.theback6 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
 	background: lightblue;
-	color:#333;
+	color: #333;
 	text-align: center;
 	border-radius: 20px;
 	font-size: 18px;
 	font-weight: bold;
 	transform: rotateY(180deg);
 }
+
 .img6 {
 	width: 250px;
 	border-radius: 20px;
 }
 
-.maincontainer7{
+.maincontainer7 {
 	position: relative;
 	width: 250px;
 	height: 320px;
 }
-.thecard7{
+
+.thecard7 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	transform-style: preserve-3d;
 	transition: all 0.5s ease;
-
 	left: 1100px;
 	bottom: 1570px;
 }
-.thecard7:hover{
-	transform:rotateY(180deg);
-	
-}
-.thefront7{
+
+	.thecard7:hover {
+		transform: rotateY(180deg);
+	}
+
+.thefront7 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
 	background: lightblue;
-	color:#333;
+	color: #333;
 	text-align: center;
 	border-radius: 20px;
 	font-size: 18px;
 	font-weight: bold;
 }
-.theback7{
+
+.theback7 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
 	background: lightblue;
-	color:#333;
+	color: #333;
 	text-align: center;
 	border-radius: 20px;
 	font-size: 18px;
 	font-weight: bold;
 	transform: rotateY(180deg);
 }
+
 .img7 {
 	width: 250px;
 	border-radius: 20px;
@@ -534,4 +583,8 @@ nav {
 
 .logo {
 	width: 100px;
+}
+
+nav {
+	margin-right: 100px;
 }
