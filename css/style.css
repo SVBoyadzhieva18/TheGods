@@ -223,34 +223,29 @@ nav {
     font-size: 8vw;
     color: white;   
     font-family: Poppins, sans-serif;
-    letter-spacing: 50px;
+    letter-spacing: 3vw;
 }
 
 .ncontainer {
     display: inline-block;
-    width: 350px;
-    height: 500px;
+    width: 21.8vw;
+    height: 50vh;
     text-align:right;
     margin-left: 64vw;
-    margin-top: -325px;
+    margin-top: -40vh;
     
 }
 
 .d1 {
-    width: 350px;
+    width: 21.8vw;
     display: block;
-}
-
-.n1 {
-border-radius: 15px;
-
 }
 
 .w1 {
     width:21.8vw;
     height: 7.1vh;
     background-color:white;
-    margin-bottom: 40px;
+    margin-bottom: 5vh;
 }
 .artlink {
     color: black;
@@ -270,5 +265,5 @@ p {
 }
 
 #w2 {
-    padding-top: 10px; 
+    padding-top: 1vh; 
 }
